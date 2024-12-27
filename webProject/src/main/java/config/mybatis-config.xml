@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--  MyBatis에서 사용할 자료형의 별칭 선언 -->
+	<typeAliases>
+		<typeAlias type="com.mvc.board.vo.BoardVO" alias="board"/>
+	</typeAliases>
+	
+	<!-- MyBatis에서 연동할 DataBase 정보 등록 -->
+	<environments default="development">
+	  <environment id="development">
+	    <transactionManager type="JDBC"/>
+	    <dataSource type="POOLED">
+	      <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+	      <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1522/xepdb1"/>
+	      <property name="username" value="javauser"/>
+	      <property name="password" value="java1234"/>
+	    </dataSource>
+	  </environment>
+	</environments>	
+
+	<!-- type="POOLED"
+		 최초 Connection객체를 생성할 때 해당 정보를 pool영역에 저장해두고 이후 Connection객체를 생성할 때 이를 재사용함 -->
+	<mappers>
+		<mapper resource="query/board.xml"/>
+	</mappers>
+</configuration>
