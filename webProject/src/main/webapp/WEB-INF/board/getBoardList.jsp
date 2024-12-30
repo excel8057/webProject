@@ -23,19 +23,20 @@
 					<c:choose>
 						<c:when test="${not empty list}" >
 							<c:forEach var="vo" items="${list}">
-								<tr class="text-center" data-num="${vo.num}">
-								   <td>${vo.num}</td>
-								   <td class="text-start"><span class="goDetail">${vo.title}</span></td>  
-								   <td>${vo.author}</td>
-								   <td>${vo.writeday}</td>
-								   <td>${vo.readcnt}</td>
+								<tr class="text-center" data-num="${vo.num}" >
+									<td>${vo.num}</td>
+									<%--<td class="text-start"><span class="goDetail">${vo.title}</span></td> --%> 
+									<td class="text-start"><a href="/board/detailBoard.do?num=${vo.num}">${vo.title}</a></td> 
+									<td>${vo.author}</td>
+									<td>${vo.writeday}</td>
+									<td>${vo.readcnt}</td>
 								</tr>
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-						<tr>
-							<td colspan="5" class="text-center">등록된 게시물이 존재하지 않습니다.</td>
-						</tr>
+							<tr>
+								<td colspan="5" class="text-center">등록된 게시물이 존재하지 않습니다.</td>
+							</tr>
 						</c:otherwise>
 					</c:choose>		
 				</tbody>
@@ -48,5 +49,6 @@
 		</div>
 	</div>
 	<script src="/include/js/getBoardList.js"></script>
+	<script src="/include/js/common.js"></script>
 </body>
 </html>

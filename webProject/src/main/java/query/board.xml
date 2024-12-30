@@ -11,5 +11,36 @@
 		FROM board 
 		ORDER BY repRoot DESC, repStep ASC
 	</select> 
+	<!-- 게시물  등록 - 1 -->
+	<insert id="boardInsert" parameterType="board">
+			<selectKey keyProperty="num" resultType="int" order="BEFORE">
+				select board_seq.nextval from dual
+			</selectKey>
+			
+			INSERT INTO board(num, title, author, content, repRoot, repStep, repIndent, passwd) 
+			VALUES(#{num}, #{title}, #{author}, #{content}, #{num}, 0, 0, #{passwd})
+	</insert>
 	
+	<!-- 게시물  등록 - 2
+	<insert id="boardInsert" parameterType="board">
+			INSERT INTO board(num, title, author, content, repRoot, repStep, repIndent, passwd) 
+			VALUES(board_seq.nextval, #{title}, #{author}, #{content}, board_seq.currval, 0, 0, #{passwd})
+	</insert> -->
+	
+	<!-- 게시물  조회수 증가 -->
+	<update id="readcntUpdate" parameterType="board">
+			UPDATE board 
+			SET readcnt = readcnt + 1 
+			WHERE num = #{num}
+	</update>
+			
+	<!-- 게시물  조회-->
+	<select id="boardDetail" parameterType="board" resultType="board">
+			/* Board - detail */
+			SELECT num, author, title, content, 
+			TO_CHAR(writeday,'YYYY-MM-DD HH24:MI:SS') writeday,  
+			readcnt, repRoot, repIndent, repStep 
+			FROM board 
+			WHERE num = #{num}
+	</select>
 </mapper>

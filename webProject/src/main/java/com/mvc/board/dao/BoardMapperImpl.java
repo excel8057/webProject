@@ -22,5 +22,14 @@ public class BoardMapperImpl implements BoardMapper{
 	public void close(){
 		session.close();
 	}
-
+	public int boardInsert(BoardVO vo) {
+		return session.insert("boardInsert", vo);	
+	}
+	public void readcntUpdate(BoardVO vo) {
+		session.update("readcntUpdate", vo);
+	}
+		
+	public BoardVO boardDetail(BoardVO vo) {
+		return (BoardVO)session.selectOne("boardDetail", vo);
+	}
 }

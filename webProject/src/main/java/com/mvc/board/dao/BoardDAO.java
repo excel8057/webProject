@@ -3,7 +3,6 @@ package com.mvc.board.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class BoardDAO {
 	private BoardDAO() {}
 	
 	/***********************************************************
-	 * boardList(BoardVO vo) 메서드: 게시판 목록 조회.
+	 * boardList(BoardVO v o) 메서드: 게시판 목록 조회.
 	 * @return List<BoardVO> 리턴.
 	 ***********************************************************/
 	public List<BoardVO> boardList(BoardVO vo){
