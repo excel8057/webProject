@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<!--  MyBatis에서 사용할 자료형의 별칭 선언 -->
+		<!--  MyBatis에서 사용할 자료형의 별칭 선언 -->
 	<typeAliases>
 		<typeAlias type="com.mvc.board.vo.BoardVO" alias="board"/>
+		<typeAlias type="com.mvc.reply.vo.ReplyVO" alias="reply"/>
 	</typeAliases>
 	
 	<!-- MyBatis에서 연동할 DataBase 정보 등록 -->
@@ -19,9 +20,9 @@
 	  </environment>
 	</environments>	
 
-	<!-- type="POOLED"
-		 최초 Connection객체를 생성할 때 해당 정보를 pool영역에 저장해두고 이후 Connection객체를 생성할 때 이를 재사용함 -->
+	<!-- 쿼리문이 저장된  x ml 문서( m a p per) 위치 설정 -->
 	<mappers>
 		<mapper resource="query/board.xml"/>
+		<mapper resource="query/reply.xml"/>
 	</mappers>
 </configuration>

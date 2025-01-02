@@ -11,4 +11,9 @@ public interface BoardService {
 	public BoardVO boardDetail(BoardVO vo);
 	
 	public BoardVO updateForm(BoardVO vo);
+	
+	public int boardUpdate(BoardVO vo);
+	public void boardDelete(BoardVO vo);
+	
+	public int boardPasswdChk(BoardVO vo);
 }

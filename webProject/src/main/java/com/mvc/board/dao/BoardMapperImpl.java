@@ -32,4 +32,17 @@ public class BoardMapperImpl implements BoardMapper{
 	public BoardVO boardDetail(BoardVO vo) {
 		return (BoardVO)session.selectOne("boardDetail", vo);
 	}
+	@Override
+	public int boardUpdate(BoardVO vo) {
+		return session.update("boardUpdate", vo);	
+	}
+	@Override
+	public void boardDelete(BoardVO vo) {
+		session.delete("boardDelete", vo);	
+	}
+	@Override
+	public int boardPasswdChk(BoardVO vo) {
+		return (int)session.selectOne("boardPasswdChk", vo);
+	}
+	
 }

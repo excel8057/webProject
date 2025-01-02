@@ -40,7 +40,7 @@
 					<tr>
 						<td class="text-center">비밀번호</td>
 						<td colspan="3">
-							<input type="password" name="passwd" id="passwd" class="form-control" placeholder="기존 비밀번호가 아니라 수정할 비밀번호를 입력해 주세요."/>
+							<input type="password" name="passwd" id="passwd" class="form-control" placeholder="수정할 비밀번호를 입력해 주세요."/>
 						</td>
 					</tr>	
 				</table>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mvc.reply.dao.ReplyMapper">
+	<resultMap type="reply" id="replyMap">
+		<id property="replyNumber" column="r_num" />
+		<result property="num" column="num" />
+		<result property="replyName" column="r_name" />
+		<result property="replyContent" column="r_content" />
+		<result property="replyDate" column="r_date" />
+		<result property="replyPwd" column="r_pwd" />
+	</resultMap>
+
+	<select id="replyList" parameterType="reply" resultMap="replyMap">
+		select r_num, num, r_name, r_content, 
+			   to_char(r_date,'YYYY-MM-DD HH24:MI:SS') as r_date 
+		from reply 
+		where num = #{num}
+		order by r_num desc
+	</select>
+	
+</mapper>

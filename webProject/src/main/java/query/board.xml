@@ -2,13 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mvc.board.dao.BoardMapper">
 	
-	<!-- 게시물 기본 조회 -->
+	<!-- 게시물 기본 조회 
 	<select id="boardList" resultType="board">
 		/* Board - boardList */
 		SELECT num, author, title, readcnt, 
 			   to_char(writeday, 'YYYY-MM-DD') writeday, 
 			   repRoot, repStep, repIndent 
 		FROM board 
+		ORDER BY repRoot DESC, repStep ASC
+	</select> -->
+	
+	<!-- 게시물 조회(검색 부문 포함) -->
+	<select id="boardList" parameterType="board" resultType="board">
+		/* Board - boardList */
+		SELECT num, author, title, readcnt, 
+			   to_char(writeday, 'YYYY-MM-DD') writeday, 
+			   repRoot, repStep, repIndent 
+		FROM board 
+		<where>
+			<if test="search=='title'">
+					<![CDATA[ title LIKE '%'|| #{keyword} ||'%' ]]>					
+			</if>
+			<if test="search=='content'">
+					<![CDATA[ content LIKE '%'|| #{keyword} ||'%' ]]>					
+			</if>
+			<if test="search=='author'">
+					<![CDATA[ author LIKE '%'|| #{keyword} ||'%' ]]>					
+			</if>
+		</where>
 		ORDER BY repRoot DESC, repStep ASC
 	</select> 
 	<!-- 게시물  등록 - 1 -->
@@ -42,5 +63,34 @@
 			readcnt, repRoot, repIndent, repStep 
 			FROM board 
 			WHERE num = #{num}
+	</select>
+	
+		<!-- 게시물  수정 -->
+	<update id="boardUpdate" parameterType="board" >
+		/* Board - boardUpdate */
+		UPDATE board SET 
+			title = #{title}, 
+			content = #{content},
+			writeday = sysdate
+		<if test="passwd != ''">
+			,passwd = #{passwd}  
+		</if>
+		WHERE num = #{num}
+	</update>
+	
+	<!-- 게시물  삭제 -->	
+	<delete id="boardDelete" parameterType="board" >
+		/* Board - boardDelete */
+		DELETE FROM board WHERE num = #{num}
+	</delete>
+	
+	<!-- 해당 번호의 비밀번호 확인 -->
+	<select id="boardPasswdChk" parameterType="board" resultType="int">
+		/* Board - boardPasswdChk */
+		SELECT NVL((
+				         SELECT 1 FROM board
+				          WHERE num = #{num} AND passwd = #{passwd}
+				   ), 0) as state
+		FROM dual 
 	</select>
 </mapper>

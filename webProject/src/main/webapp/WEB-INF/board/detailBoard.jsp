@@ -19,6 +19,20 @@
 		<div class="row text-center mb-2">
 			<div id="pwdChk" class="col-md-9 text-start">	
             <!-- 비밀번호 확인 form 추가 -->
+            <form name="f_passwdCheck" id="f_passwdCheck" class="row g-3">
+				<input type="hidden" name="num" id="num" value="${detail.num}"/>
+				<div class="col-auto">
+					<label for="passwd" class="visually-hidden">비밀번호</label>
+					<input type="password" class="form-control" name="passwd" id="passwd" placeholder="비밀번호 입력" />
+				</div>
+				<div class="col-auto">
+					<button type="button" class="btn btn-primary btn-sm" id="passwdBtn">확인</button>
+					<button type="button" class="btn btn-primary btn-sm" id="passwdCancelBtn">취소</button>
+				</div>
+				<div class="col-auto">
+					<span id="message" class="align-middle"></span>
+				</div>
+			</form>
 			</div>
 			<div class="col-md-3 text-end">
 				<button type="button" id="updateForm" class="btn btn-primary btn-sm" >수정</button>
@@ -58,6 +72,7 @@
 				</tbody>
 			</table>
 		</div>
+		<jsp:include page="reply.jsp" />
 	</div>
 	<script src="/include/js/detailBoard.js"></script>
 	<script src="/include/js/common.js"></script>
