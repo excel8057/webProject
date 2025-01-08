@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="webProject/src/main/java"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.8.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/jackson-core-2.9.8.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/jackson-databind-2.9.8.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/logback-classic-1.2.11.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/logback-core-1.2.11.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/mybatis-3.5.9.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/ojdbc11.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/slf4j-api-1.7.36.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar"/>
+	<classpathentry kind="lib" path="webProject/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar"/>
+	<classpathentry kind="output" path="webProject/build/classes"/>
+</classpath>

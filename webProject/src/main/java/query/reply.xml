@@ -17,5 +17,4 @@
 		where num = #{num}
 		order by r_num desc
 	</select>
-	
 </mapper>
